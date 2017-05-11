@@ -1,0 +1,10 @@
+mkdir meteo
+cd ./meteo
+wget https://www1.ncdc.noaa.gov/pub/data/noaa/2015/007070-99999-2015.gz
+gunzip 007070-99999-2015.gz
+wget https://www1.ncdc.noaa.gov/pub/data/noaa/2016/007026-99999-2016.gz
+gunzip 007026-99999-2016.gz
+wget https://www1.ncdc.noaa.gov/pub/data/noaa/2017/007026-99999-2017.gz
+gunzip 007026-99999-2017.gz
+wget https://www1.ncdc.noaa.gov/pub/data/noaa/2017/010010-99999-2017.gz
+gunzip 010010-99999-2017.gz
