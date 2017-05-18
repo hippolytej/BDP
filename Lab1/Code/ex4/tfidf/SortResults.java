@@ -21,6 +21,8 @@ public class SortResults {
 	
 	public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue( Map<K, V> map ){
 		
+		
+		
 		List<Map.Entry<K, V>> list = new LinkedList<Map.Entry<K, V>>( map.entrySet() );
 		
 		Collections.sort( list, new Comparator<Map.Entry<K, V>>() {
@@ -38,8 +40,12 @@ public class SortResults {
 
 	public static void main(String[] args) throws IOException {
 		
+		if (args.length != 1) {
+            System.out.println("Usage: [input]");
+            System.exit(-1);
+        }
 		
-		Path filename = new Path("Output/part-r-00000");
+		Path filename = new Path(args[0]);
 		
 		//Open the file
 		Configuration conf = new Configuration();
@@ -74,7 +80,7 @@ public class SortResults {
 			
 			
 			
-			for(int i = 0; i <21; i++){
+			for(int i = 0; i <20; i++){
 				Entry<String, Double> e = it.next();
 				System.out.println(e.getKey()+ " : " + e.getValue());
 			}

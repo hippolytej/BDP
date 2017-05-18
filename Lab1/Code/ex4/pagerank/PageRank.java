@@ -45,7 +45,7 @@ public class PageRank extends Configured implements Tool {
         }
         
         Job job0 = Job.getInstance(getConf());
-        job0.setJobName("Step 1 : simple WordCount");
+        job0.setJobName("Step 0 : process input");
 
         job0.setJarByClass(PageRank.class);
         job0.setMapperClass(PreMapper.class);
@@ -68,7 +68,7 @@ public class PageRank extends Configured implements Tool {
         System.out.println("Nombre de nodes :" + counter.getValue());
         
         Job job1 = Job.getInstance(getConf());
-        job1.setJobName("Step  : docs per word + tfidf");
+        job1.setJobName("Initialize PageRank");
 
         job1.setJarByClass(PageRank.class);
         job1.setMapperClass(PRMapper.class);
@@ -91,9 +91,9 @@ public class PageRank extends Configured implements Tool {
         int i = 1;
         while(true){
         	
-        	System.out.println("===============================");
-        	System.out.println("         ITERATION #" + i);
-        	System.out.println("===============================");
+        	System.out.println("__________________________________________");
+        	System.out.println("              ITERATION #" + i);
+        	System.out.println("__________________________________________");
         	
         	Job job = Job.getInstance(getConf());
             job.setJobName("Step  : iterate pagerank");

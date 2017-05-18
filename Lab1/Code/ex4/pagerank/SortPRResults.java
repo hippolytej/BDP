@@ -78,7 +78,7 @@ public class SortPRResults {
 			
 			
 			
-			for(int i = 0; i <21; i++){
+			for(int i = 0; i <10; i++){
 				Entry<String, Double> e = it.next();
 				System.out.println(e.getKey()+ " : " + e.getValue());
 			}

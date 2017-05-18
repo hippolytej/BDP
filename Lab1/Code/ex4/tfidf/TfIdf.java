@@ -31,7 +31,7 @@ public class TfIdf extends Configured implements Tool {
         FileSystem fs = FileSystem.newInstance(getConf());
         FileStatus[] stat = fs.listStatus(inputPath);
         
-        fs.close();
+        
         
         if (fs.exists(step1)) {
         	fs.delete(step1, true);
@@ -42,6 +42,8 @@ public class TfIdf extends Configured implements Tool {
         if (fs.exists(outputPath)) {
         	fs.delete(outputPath, true);
         }
+        
+        fs.close();
 
         // Word count
         Job job1 = Job.getInstance(getConf());
@@ -102,6 +104,7 @@ public class TfIdf extends Configured implements Tool {
 
         FileInputFormat.addInputPath(job3, step2);
         FileOutputFormat.setOutputPath(job3, outputPath);    
+        
         
         return job3.waitForCompletion(true) ? 0: 1;
     }
